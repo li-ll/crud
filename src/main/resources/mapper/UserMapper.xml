@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.UserMapper">
+
+
+
+    <select id="findByUsername" resultType="org.example.domain.User">
+       select * from tab_user where username = #{username}
+    </select>
+
+
+    <select id="findByCode" resultType="org.example.domain.User">
+       select * from tab_user where code = #{code}
+    </select>
+    <select id="findByUsernameAndPassword" resultType="org.example.domain.User">
+       select * from tab_user where username = #{username} and password = #{password} and isDelete= '0'
+    </select>
+    <update id="updateStatus" parameterType="org.example.domain.User">
+       update tab_user set status = 'Y' where uid=#{uid}
+    </update>
+
+    <insert id="add" parameterType="org.example.domain.User">
+        insert into tab_user(username,password,email,status,code)
+        values(#{username},#{password},#{email},#{status},#{code})
+    </insert>
+    <update id="deleteUser">
+    update tab_user set isDelete= '1' where username=#{username}
+    </update>
+    <update id="updateUser" parameterType="org.example.domain.User">
+        update tab_user
+        <set>
+            <if test="password!=null">
+                password= #{password},
+            </if>
+            <if test="email!=null">
+                email= #{email},
+            </if>
+            <if test="isDelete!=null">
+                isDelete= #{isDelete}
+            </if>
+         </set>
+        where username=#{username}
+    </update>
+
+</mapper>

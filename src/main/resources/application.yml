@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+  #  url: jdbc:mysql://localhost:3306/sys?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/pro?characterEncoding=utf8&useSSL=true
+    username: root
+    password: 123456
+
+
+    #    prefix: classpath:/templates/
+    #spring.thymeleaf.cache=falseapplication.yml:4url: jdbc:mysql://192.168.159.130:3306/pear-admin?serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL&autoReconnect=true&useSSL=false&failOverReadOnly=false
+    #          username: root
+    #          password: 7M*kfwmpk,tB
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.domain
+logging:  #日志
+  level:
+    org.example.mapper: debug
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  pageSizeZero: false #pageSize=0
+server:
+  port: 81
