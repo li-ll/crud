@@ -13,7 +13,7 @@ public final class MailUtils {
     // 发件人称号，同邮箱地址
     private static final String USER = "2209288672@qq.com";
     // 如果是qq邮箱可以使户端授权码，或者登录密码
-    private static final String PASSWORD = "gxtjyigzxwolecjc";
+    private static final String PASSWORD = "";
 
     /**
      *
